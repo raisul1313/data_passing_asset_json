@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "movie_name": "THE LOST CITY",
+    "movie_year": 2022,
+    "movie_director": " Adam Nee, Aaron Nee",
+    "movie_description": "The Lost City doesn't sparkle quite as brightly as some classic treasure-hunting capers, but its stars' screwball chemistry make this movie well worth romancing.",
+    "image_url": "https://resizing.flixster.com/wFWZpHfLtrUA49MyGXNl2X80Chs=/fit-in/180x240/v2/https://resizing.flixster.com/s1V-vHPMVvDmhQsDcoprzMiXZFQ=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzL2ExNDVlZGU0LTJkMTMtNDVkZS1iYTkyLTEzNzllNDI2NWUzNi5qcGc="
+  },
+  {
+    "id": 2,
+    "movie_name": "THE BATMAN",
+    "movie_year": 2022,
+    "movie_director": " Adam Nee, Aaron Nee",
+    "movie_description": " grim, gritty, and gripping super-noir, The Batman ranks among the Dark Knight's bleakest -- and most thrillingly ambitious -- live-action outings.",
+    "image_url": "https://resizing.flixster.com/-fJAolsN7DX3qfNWcyUeeWrloD8=/fit-in/180x240/v2/https://resizing.flixster.com/z7Qex7L7ZUT1YdAwuJ49BEulml4=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc1OGFlMDI0LTE1ZTEtNDE4ZS04Y2RmLWNjYzcyOWQyZmMyNi5qcGc="
+  }
+]

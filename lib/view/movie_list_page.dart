@@ -1,6 +1,6 @@
 import 'dart:convert';
-
 import 'package:data_passing_asset_json/movie.dart';
+import 'package:data_passing_asset_json/view/movie_details_page.dart';
 import 'package:data_passing_asset_json/view/movie_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,6 +18,7 @@ class _MovieListPageState extends State<MovieListPage> {
   @override
   void initState() {
     _movieCollection = [];
+    readJson();
     super.initState();
   }
 
@@ -31,7 +32,6 @@ class _MovieListPageState extends State<MovieListPage> {
       _movieCollection = data;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -58,10 +58,14 @@ class _MovieListPageState extends State<MovieListPage> {
               children: [
                 ListView.builder(
                   itemCount: _movieCollection.length,
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   itemBuilder: (BuildContext context, int index) {
-                    return _movieCollectionWidget();
+                    return MovieItem(
+                      movie: _movieCollection[index],
+                      itemClick: _onItemCLicked,
+                    );
                   },
                 ),
               ],
@@ -72,9 +76,9 @@ class _MovieListPageState extends State<MovieListPage> {
     );
   }
 
-  Widget _movieCollectionWidget() {
-    return Column(
-      children: [..._movieCollection.map((e) => MovieItem(movie: e))],
-    );
+  _onItemCLicked(Movie movie) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetailsPage(movie: movie)));
   }
 }
+
+

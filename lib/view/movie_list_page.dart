@@ -51,26 +51,22 @@ class _MovieListPageState extends State<MovieListPage> {
         height: size.height,
         width: size.width,
         color: Colors.grey.shade200,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Column(
-              children: [
-                ListView.builder(
-                  itemCount: _movieCollection.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  itemBuilder: (BuildContext context, int index) {
-                    return MovieItem(
-                      movie: _movieCollection[index],
-                      itemClick: _onItemCLicked,
-                    );
-                  },
-                ),
-              ],
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: _movieCollection.length,
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemBuilder: (BuildContext context, int index) {
+                  return MovieItem(
+                    movie: _movieCollection[index],
+                    itemClick: _onItemCLicked,
+                  );
+                },
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

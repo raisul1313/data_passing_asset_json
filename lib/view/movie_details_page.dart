@@ -31,43 +31,62 @@ class MovieDetailsPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CachedNetworkImage(
-                  // height: 200,
-                  // width: size.width,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => SizedBox(
-                    child: Image.asset("assets/images/load.png"),
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1.0),
+                    ),
+                    child: CachedNetworkImage(
+                      // height: 200,
+                      // width: size.width,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => SizedBox(
+                        child: Image.asset("assets/images/load.png"),
+                      ),
+                      imageUrl: movie.imageUrl!,
+                      errorWidget: (context, url, error) {
+                        print(error);
+                        return Icon(
+                          Icons.error,
+                          color: Colors.red,
+                        );
+                      },
+                    ),
                   ),
-                  imageUrl: movie.imageUrl!,
-                  errorWidget: (context, url, error) {
-                    print(error);
-                    return Icon(
-                      Icons.error,
-                      color: Colors.red,
-                    );
-                  },
                 ),
                 SizedBox(
                   height: 5.0,
                 ),
-                Text(
-                  movie.movieName! + " (${movie.movieYear.toString()})",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                Center(
+                  child: Text(
+                    movie.movieName! + " (${movie.movieYear.toString()})",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
                 ),
                 SizedBox(
                   height: 5.0,
                 ),
-                Text(
-                  movie.movieDirector!,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                Center(
+                  child: Text(
+                    movie.movieDirector!,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
                 ),
                 SizedBox(
                   height: 5.0,
                 ),
-                Text(
-                  movie.movieDescription!,
-                  style: TextStyle(fontSize: 15),
-                  textAlign: TextAlign.justify,
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      movie.movieDescription!,
+                      style: TextStyle(fontSize: 15),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
                 ),
               ],
             ),

@@ -27,19 +27,24 @@ class MovieItem extends StatelessWidget {
             children: [
               Expanded(
                   flex: 1,
-                  child: CachedNetworkImage(
-                    fit: BoxFit.cover,
-                    placeholder: (context, url) => SizedBox(
-                      child: Image.asset("assets/images/load.png"),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(),
                     ),
-                    imageUrl: movie.imageUrl!,
-                    errorWidget: (context, url, error) {
-                      print(error);
-                      return Icon(
-                        Icons.error,
-                        color: Colors.red,
-                      );
-                    },
+                    child: CachedNetworkImage(
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => SizedBox(
+                        child: Image.asset("assets/images/load.png"),
+                      ),
+                      imageUrl: movie.imageUrl!,
+                      errorWidget: (context, url, error) {
+                        print(error);
+                        return Icon(
+                          Icons.error,
+                          color: Colors.red,
+                        );
+                      },
+                    ),
                   )),
               Expanded(
                 flex: 3,
@@ -63,15 +68,17 @@ class MovieItem extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(movie.movieYear!.toString() + ","),
-                          SizedBox(
-                            width: 3,
-                          ),
-                          Text(
-                            movie.movieDirector!,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                          Expanded(
+                              flex: 0,
+                              child: Text(movie.movieYear!.toString() + ",")),
+                          Expanded(
+                            flex: 1,
+                            child: Text(
+                              movie.movieDirector!,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          )
                         ],
                       ),
                       SizedBox(
